@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { TodoItem } from '@/interfaces/Todo'
+import type { Todo } from '@/interfaces/Todo'
 
 defineProps<{
-  todo: TodoItem,
+  todo: Todo,
 }>()
 </script>
 

@@ -6,6 +6,8 @@ const todos = ref<Todo[]>([])
 const newTodo = ref('')
 
 function addTodo() {
+  if (newTodo.value == '')
+    return
   todos.value.push({
     id: Date.now(),
     text: newTodo.value,
@@ -27,7 +29,7 @@ function deleteTodo(id: number) {
         <v-text-field v-model="newTodo" @keyup.enter="addTodo"></v-text-field>
         <v-list>
           <TodoItem
-            v-for="todo in todos"
+            v-for="todo in todos.slice().reverse()"
             :key="todo.id"
             :todo="todo"
             @delete="deleteTodo"
